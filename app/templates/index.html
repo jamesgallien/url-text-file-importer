@@ -7,12 +7,18 @@
         <table>
             {% for link in links %}
                 {% if link.space == False %}
-                    <tr>
-                        <td><a href="{{ link.url }}">{{ link.url }}</td>
-                        <td>{{ link.starred }}</td>
-                        <td>{{ link.read }}</td>
-                        <td>{{ link.dead_link }}</td>
-                    </tr>
+                    {% if link.header == False %}
+                        <tr>
+                            <td><a href="{{ link.url }}">{{ link.url }}</td>
+                            <td>{{ link.starred }}</td>
+                            <td>{{ link.read }}</td>
+                            <td>{{ link.dead_link }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ link.url }}</td>
+                        </tr>
+                    {% endif %}
                 {% else %}
                     <tr>
                         <td>|</td>

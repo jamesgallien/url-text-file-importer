@@ -2,7 +2,7 @@ from app import db
 
 from .models import Link
 
-def populateDatabase():
+def populateDb():
     inputFile = open("sample_txt_file.txt", "r")
     inputFile.seek(0)
     for line in inputFile:
@@ -14,6 +14,8 @@ def populateDatabase():
             if real_line[0] == "*":
                 real_line = real_line[1:]
                 link = Link(url=real_line, starred=True)
+            elif ("www" not in real_line) or ("http" not in real_line):
+                link = Link(url=real_line, header=True)
             else:
                 link = Link(url=real_line)
         else:
@@ -22,11 +24,17 @@ def populateDatabase():
         db.session.commit()
     inputFile.close
 
-def clearDatabase():
+def clearDb():
     for link in Link.query.all():
         db.session.delete(link)
     db.session.commit()
 
-def printDatabase():
+def printDb():
     for link in Link.query.all():
-        print(link)
+        print(link.id)
+        print(link.url)
+        print(link.starred)
+        print(link.read)
+        print(link.dead_link)
+        print(link.header)
+        print(link.space)
