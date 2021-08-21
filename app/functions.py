@@ -14,14 +14,14 @@ def populateDb():
             if real_line[0] == "*":
                 real_line = real_line[1:]
                 link = Link(url=real_line, starred=True)
-            elif ("www" not in real_line) or ("http" not in real_line):
+            elif ("www" not in real_line) and ("http" not in real_line):
                 link = Link(url=real_line, header=True)
             else:
                 link = Link(url=real_line)
         else:
             link = Link(space=True)
         db.session.add(link)
-        db.session.commit()
+    db.session.commit()
     inputFile.close
 
 def clearDb():
