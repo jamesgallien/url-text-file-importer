@@ -3,7 +3,7 @@ from app import db
 from .models import Link
 
 def populateDb():
-    inputFile = open("sample_txt_file.txt", "r")
+    inputFile = open("../sample_txt_file.txt", "r")
     inputFile.seek(0)
     for line in inputFile:
         if line != "\n":
