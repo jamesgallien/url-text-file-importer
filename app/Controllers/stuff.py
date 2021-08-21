@@ -1,6 +1,5 @@
 from app import db
 
-from ..models import Entry
 from ..models import Link
 
 def populateDatabase():
@@ -15,12 +14,10 @@ def populateDatabase():
             if real_line[0] == "*":
                 real_line = real_line[1:]
                 link = Link(url=real_line, starred=True)
-                db.session.add(link)
-                db.session.commit()
             else:
                 link = Link(url=real_line)
-                db.session.add(link)
-                db.session.commit()
+            db.session.add(link)
+            db.session.commit()
     inputFile.close
 
 def clearDatabase():
