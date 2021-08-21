@@ -1,6 +1,6 @@
 from app import db
 
-from ..models import Link
+from .models import Link
 
 def populateDatabase():
     inputFile = open("sample_txt_file.txt", "r")
