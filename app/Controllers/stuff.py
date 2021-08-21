@@ -20,7 +20,8 @@ def getLinkList():
             for x in line:
                 if x != "\n":
                     real_line += x
-            if "google" in real_line:
+            if real_line[0] == "*":
+                real_line = real_line[1:]
                 entry = Entry(real_line, True)
             else:
                 entry = Entry(real_line)
