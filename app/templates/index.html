@@ -3,6 +3,15 @@
         <title>text_importer</title>
     </head>
     <body>
-        <h1>Welcome to {{ application_name.name}} </h1>
+        <h1>Welcome to {{ application_name.name }}</h1>
+        <table>
+            {% for link in links %}
+            <tr>
+                <td><a href="{{ link.url }}">{{ link.url }}</td>
+                <td>{{ link.starred }}</td>
+                <td>{{ link.read }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>
