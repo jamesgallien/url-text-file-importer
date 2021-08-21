@@ -16,8 +16,10 @@ def populateDatabase():
                 link = Link(url=real_line, starred=True)
             else:
                 link = Link(url=real_line)
-            db.session.add(link)
-            db.session.commit()
+        else:
+            link = Link(space=True)
+        db.session.add(link)
+        db.session.commit()
     inputFile.close
 
 def clearDatabase():

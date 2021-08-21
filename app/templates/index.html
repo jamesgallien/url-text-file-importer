@@ -6,11 +6,18 @@
         <h1>Welcome to {{ application_name.name }}</h1>
         <table>
             {% for link in links %}
-            <tr>
-                <td><a href="{{ link.url }}">{{ link.url }}</td>
-                <td>{{ link.starred }}</td>
-                <td>{{ link.read }}</td>
-            </tr>
+                {% if link.space == False %}
+                    <tr>
+                        <td><a href="{{ link.url }}">{{ link.url }}</td>
+                        <td>{{ link.starred }}</td>
+                        <td>{{ link.read }}</td>
+                        <td>{{ link.dead_link }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>|</td>
+                    </tr>
+                {% endif %} 
             {% endfor %}
         </table>
     </body>
