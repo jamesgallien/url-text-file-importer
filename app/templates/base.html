@@ -5,10 +5,17 @@
     <body>
         <div>
             James' Link App:
-            <a href="/">List</a>
-            <a href="add">Add</a>
+            <a href="{{ url_for('index') }}">See the link list</a>
+            <a href="{{ url_for('add') }}">Add a link</a>
         </div>
         <h1>{{ application_name }}</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>
