@@ -10,6 +10,7 @@
                         <td>{{ link.starred }}</td>
                         <td>{{ link.read }}</td>
                         <td>{{ link.dead_link }}</td>
+                        <td><a href="delete?id={{ link.id }}">Delete</a></td>
                     </tr>
                 {% else %}
                     <tr>

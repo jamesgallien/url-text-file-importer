@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 
 from .models import Link
 from .forms import AddForm
@@ -23,3 +23,9 @@ def add():
         return redirect(url_for('add'))
     return render_template('add.html', application_name=page_name, form=form)
 
+@app.route('/delete', methods=['GET', 'POST'])
+def delete():
+    link=Link.query.get(request.args.get('id'))
+    db.session.delete(link)
+    db.session.commit()
+    return redirect(url_for('index'))
