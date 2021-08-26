@@ -4,7 +4,7 @@ Problem: I've got a whole bunch of old text files with URLs I wanted to save. Ye
 
 Solution: Anyways, so this is a little project to grab all that stuff, put it into a database, and render it in HTML. Nothing too earth-shattering. I might develop it further as I have time and inspiration.
 
-Technologies: Python, Flask, SQLite
+Technologies: Python, Flask, SQLite, Bootstrap
 
 Setup:
 
