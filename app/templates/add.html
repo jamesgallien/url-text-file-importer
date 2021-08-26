@@ -1,20 +1,10 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block content %}
-    <form action="" method="POST" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.link.label }}: </br>
-            {{ form.link(size = 32) }}
-            {{ form.submit() }}<br>
-            {% for error in form.link.errors %}
-                <span style="color: red;">[{{error}}]</span>
-            {% endfor %}
-
-        </p>
-        <p>{{ form.starred() }} {{ form.starred.label }}</p>
-        <p>{{ form.read() }} {{ form.read.label }}</p>
-        <p>{{ form.dead_link() }} {{ form.dead_link.label }}</p>
-        <p>{{ form.header() }} {{ form.header.label }}</p>
-    </form>
+{% block app_content %}
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
 {% endblock %}

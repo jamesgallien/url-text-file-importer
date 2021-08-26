@@ -1,21 +1,28 @@
-<html>
-    <head>
-        <title>text_importer</title>
-    </head>
-    <body>
-        <div>
-            James' Link App:
-            <a href="{{ url_for('index') }}">See the link list</a>
-            <a href="{{ url_for('add') }}">Add a link</a>
-        </div>
-        <h1>{{ application_name }}</h1>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
-    </body>
-</html>
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    text_importer
+{% endblock %}
+
+{% block navbar %}
+    <div>
+        James' Link App:
+        <a href="{{ url_for('index') }}">See the link list</a>
+        <a href="{{ url_for('add') }}">Add a link</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ application_name }}</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block app_content %}{% endblock %}
+
+{% endblock %}
