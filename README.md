@@ -8,7 +8,13 @@ Technologies: Python, Flask, SQLite, Bootstrap
 
 Setup:
 
-- clone
-- set up a venv
-- pip install requirements.txt
+- clone this repository
+- `python3 -m venv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+- `flask db upgrade`
+- `python`
+- > `from app.functions import populateDb`
+- > `populateDb('`[your text file here]`')`
+- > `exit()`
 - `flask run`
