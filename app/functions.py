@@ -2,8 +2,8 @@ from app import db
 
 from .models import Link
 
-def populateDb():
-    inputFile = open("../sample_txt_file.txt", "r")
+def populateDb(file):
+    inputFile = open(file)
     inputFile.seek(0)
     for line in inputFile:
         if line != "\n":
