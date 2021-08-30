@@ -18,3 +18,4 @@ Setup:
 - > `populateDb('`[your text file here]`')`
 - > `exit()`
 - `flask run`
+- app will be available at `localhost:5000`
