@@ -18,4 +18,4 @@ Setup:
 - > `populateDb('`[your text file here]`')`
 - > `exit()`
 - `flask run`
-- app will be available at `localhost:5000`
+- Database will be created one level up from cloned repository directory, and app will be available at `localhost:5000`
