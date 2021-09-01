@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <table class="table table-hover">
+    <table class="table table-hover" style="width: 100%;">
         <thead>
             <tr>
-                <th>Link</th>
-                <th>Starred</th>
-                <th>Read</th>
-                <th>Dead link</th>
-                <th></th>
+                <th style="width: 50%;">Link</th>
+                <th style="width: 10%;">Starred</th>
+                <th style="width: 10%;">Read</th>
+                <th style="width: 10%;">Dead link</th>
+                <th style="width: 10%;"></th>
             </tr>
         </thead>
         {% for link in links %}
             {% if link.space == False %}
                 {% if link.header == False %}
                     <tr>
-                        <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                        <td>
                             <a href="{{ link.url }}" target="_blank">{{ link.url }}</a>
                         </td>
                         <td>{{ link.starred }}</td>
