@@ -34,5 +34,17 @@
                 </tr>
             {% endif %} 
         {% endfor %}
+        {% if prev_url %}
+            <a href="{{prev_url}}">Previous page</a>
+        {% else %}
+            <p style="display:inline">Previous page</p>
+        {% endif %}
+        |
+        {% if next_url %}
+            <a href="{{next_url}}">Next page</a>
+        {% else %}
+            <p style="display:inline">Next page</p>
+        {% endif %}
     </table>
+    
 {% endblock %}
