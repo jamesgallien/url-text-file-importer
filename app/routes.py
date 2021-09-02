@@ -35,3 +35,8 @@ def delete():
     db.session.delete(link)
     db.session.commit()
     return redirect(url_for('index'))
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+    page_name = 'Edit a link'
+    return render_template('edit.html', application_name=page_name)    

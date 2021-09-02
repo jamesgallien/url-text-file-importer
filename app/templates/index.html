@@ -9,6 +9,7 @@
                 <th style="width: 10%;">Read</th>
                 <th style="width: 10%;">Dead link</th>
                 <th style="width: 10%;"></th>
+                <th style="width: 10%;"></th>
             </tr>
         </thead>
         {% for link in links %}
@@ -22,6 +23,7 @@
                         <td>{{ link.read }}</td>
                         <td>{{ link.dead_link }}</td>
                         <td><a href="delete?id={{ link.id }}">Delete</a></td>
+                        <td><a href="edit">Edit</a></td>
                     </tr>
                 {% else %}
                     <tr>
