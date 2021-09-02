@@ -36,6 +36,8 @@
                 </tr>
             {% endif %} 
         {% endfor %}
+        <p style="display:inline">First page</p>
+        |
         {% if prev_url %}
             <a href="{{prev_url}}">Previous page</a>
         {% else %}
@@ -47,6 +49,8 @@
         {% else %}
             <p style="display:inline">Next page</p>
         {% endif %}
+        |
+        <p style="display:inline">Last page</p>
     </table>
     
 {% endblock %}
