@@ -36,23 +36,27 @@
                 </tr>
             {% endif %} 
         {% endfor %}
-        <p style="display:inline">First page</p>
-        |
-        {% if prev_url %}
-            <a href="{{prev_url}}">Previous page</a>
+        {% if page == 1 %}
+            <p style="display:inline" class="text-muted">First page</p>
+            |
+            <p style="display:inline" class="text-muted">Previous page</p>
         {% else %}
-            <p style="display:inline">Previous page</p>
+            <a href="/">First page</a>
+            |
+            <a href="{{prev_url}}">Previous page</a>
         {% endif %}
         |
             <p style="display:inline">Page {{ page }}</p>
         |
         {% if next_url %}
             <a href="{{next_url}}">Next page</a>
+            |
+            <p style="display:inline">Last page</p>
         {% else %}
-            <p style="display:inline">Next page</p>
+            <p style="display:inline" class="text-muted">Next page</p>
+            |
+            <p style="display:inline" class="text-muted">Last page</p>
         {% endif %}
-        |
-        <p style="display:inline">Last page</p>
     </table>
     
 {% endblock %}
