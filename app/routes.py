@@ -14,7 +14,8 @@ def index():
     return render_template ('index.html', links=links.items, 
                             application_name=page_name, 
                             next_url=next_url, 
-                            prev_url=prev_url)
+                            prev_url=prev_url,
+                            page=page)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
