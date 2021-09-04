@@ -42,4 +42,19 @@ def delete():
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
     page_name = 'Edit a link'
-    return render_template('edit.html', application_name=page_name)    
+    form = AddForm()
+    link=Link.query.get(request.args.get('id'))
+    if not form.validate_on_submit():
+        form.link.data=link.url
+        form.starred.data=link.starred 
+        form.read.data=link.read
+        form.dead_link.data=link.dead_link
+        form.header.data=link.header
+        return render_template('add.html', application_name=page_name, form=form)
+    link.url=form.link.data
+    link.starred=form.starred.data
+    link.read=form.read.data
+    link.dead_link=form.dead_link.data
+    link.header=form.header.data
+    db.session.commit()
+    return redirect(url_for('index'))   
