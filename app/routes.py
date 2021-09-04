@@ -11,11 +11,13 @@ def index():
     links = Link.query.paginate(page, app.config['POSTS_PER_PAGE'], False)
     prev_url = url_for('index', page=links.prev_num) if links.has_prev else None
     next_url = url_for('index', page=links.next_num) if links.has_next else None
+    pages = links.pages
     return render_template ('index.html', links=links.items, 
                             application_name=page_name, 
                             next_url=next_url, 
                             prev_url=prev_url,
-                            page=page)
+                            page=page,
+                            pages=pages)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():

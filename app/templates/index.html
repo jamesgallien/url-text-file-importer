@@ -46,12 +46,12 @@
             <a href="{{prev_url}}">Previous page</a>
         {% endif %}
         |
-            <p style="display:inline">Page {{ page }}</p>
+            <p style="display:inline">Page {{ page }} of {{ pages }}</p>
         |
         {% if next_url %}
             <a href="{{next_url}}">Next page</a>
             |
-            <p style="display:inline">Last page</p>
+            <a href="/?page={{pages}}">Last page</a>
         {% else %}
             <p style="display:inline" class="text-muted">Next page</p>
             |
