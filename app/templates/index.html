@@ -41,7 +41,7 @@
             |
             <p style="display:inline" class="text-muted">Previous page</p>
         {% else %}
-            <a href="/">First page</a>
+            <a href="/?sort={{sort}}">First page</a>
             |
             <a href="{{prev_url}}">Previous page</a>
         {% endif %}
@@ -51,12 +51,18 @@
         {% if next_url %}
             <a href="{{next_url}}">Next page</a>
             |
-            <a href="/?page={{pages}}">Last page</a>
+            <a href="/?page={{pages}}&sort={{sort}}">Last page</a>
         {% else %}
             <p style="display:inline" class="text-muted">Next page</p>
             |
             <p style="display:inline" class="text-muted">Last page</p>
         {% endif %}
+        {% if sort=="a" %}
+            <p>Sort: <b>Oldest first</b> | <a href="/?page={{page}}&sort=d">Newest first</a></p>
+        {% else %}
+            <p>Sort: <a href="/?page={{page}}&sort=a">Oldest first</a> | <b>Newest first</b></p>
+        {% endif %}
+        
     </table>
     
 {% endblock %}

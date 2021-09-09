@@ -8,16 +8,21 @@ from .forms import AddForm
 def index():
     page_name = 'Link list'
     page = request.args.get('page', 1, type=int)
-    links = Link.query.paginate(page, app.config['POSTS_PER_PAGE'], False)
-    prev_url = url_for('index', page=links.prev_num) if links.has_prev else None
-    next_url = url_for('index', page=links.next_num) if links.has_next else None
+    sort = request.args.get('sort', "a")
+    if sort == 'a' or sort == None:
+        links = Link.query.paginate(page, app.config['POSTS_PER_PAGE'], False)
+    else:
+        links = Link.query.order_by(Link.id.desc()).paginate(page, app.config['POSTS_PER_PAGE'], False)
+    prev_url = url_for('index', page=links.prev_num, sort=sort) if links.has_prev else None
+    next_url = url_for('index', page=links.next_num, sort=sort) if links.has_next else None
     pages = links.pages
     return render_template ('index.html', links=links.items, 
                             application_name=page_name, 
                             next_url=next_url, 
                             prev_url=prev_url,
                             page=page,
-                            pages=pages)
+                            pages=pages,
+                            sort=sort)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
