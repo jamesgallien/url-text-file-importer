@@ -8,4 +8,4 @@ class AddForm(FlaskForm):
     read = BooleanField('Read')
     dead_link = BooleanField('Dead link')
     header = BooleanField('Header')
-    submit = SubmitField('Add link')
+    submit = SubmitField('Submit')
