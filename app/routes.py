@@ -57,4 +57,4 @@ def edit():
     link.dead_link=form.dead_link.data
     link.header=form.header.data
     db.session.commit()
-    return redirect(url_for('index'))   
+    return redirect('/?page=' + request.args.get('return'))
